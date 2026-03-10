@@ -1,0 +1,40 @@
+body{
+  background:#f4f6f8;
+  font-family:Arial;
+}
+
+.login-container{
+  width:350px;
+  margin:120px auto;
+  padding:30px;
+  background:white;
+  border-radius:10px;
+  box-shadow:0 0 10px gray;
+  text-align:center;
+}
+
+.login-container h2{
+  margin-bottom:20px;
+}
+
+.login-container input{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
+
+.login-container button{
+  width:100%;
+  padding:10px;
+  background:#4CAF50;
+  color:white;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.login-container button:hover{
+  background:#45a049;
+}
