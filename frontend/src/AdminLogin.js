@@ -1,16 +1,28 @@
 import React, { useState } from "react";
 import "./AdminLogin.css";
+import { adminLogin } from "./api";
+import { useNavigate } from "react-router-dom";
 
 function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    if (email === "admin@gmail.com" && password === "admin123") {
-      alert("Admin Login Successful");
-    } else {
-      alert("Invalid Email or Password");
+    setError("");
+    setLoading(true);
+    try {
+      const { data } = await adminLogin({ email, password });
+      localStorage.setItem("adminToken", data.token);
+      localStorage.setItem("adminInfo", JSON.stringify(data.admin));
+      navigate("/dashboard");
+    } catch (err) {
+      setError(err.response?.data?.message || "Login failed. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -30,7 +42,10 @@ function AdminLogin() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Login</button>
+        {error && <p style={{ color: "red", fontSize: "0.875rem" }}>{error}</p>}
+        <button type="submit" disabled={loading}>
+          {loading ? "Logging in..." : "Login"}
+        </button>
       </form>
     </div>
   );

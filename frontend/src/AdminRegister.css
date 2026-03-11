@@ -1,9 +1,6 @@
-/* Register-specific overrides (inherits .form-content from AdminLogin.css) */
-/* Register button uses blue instead of green */
+/* Register uses the same .form-content styles from AdminLogin.css */
+/* Override submit button to use accent gradient */
 .form-content button[type="submit"] {
-  background: #2196F3;
-}
-
-.form-content button[type="submit"]:hover {
-  background: #1976D2;
+  background: linear-gradient(135deg, #6c63ff 0%, #ff6584 100%);
+  box-shadow: 0 6px 20px rgba(255, 101, 132, 0.28);
 }

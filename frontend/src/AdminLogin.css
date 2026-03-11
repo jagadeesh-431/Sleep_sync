@@ -1,36 +1,69 @@
+/* ---- Auth Form Content ---- */
 .form-content {
-  padding: 30px;
-  text-align: center;
+  padding: 32px 28px 28px;
 }
 
 .form-content h2 {
-  margin-bottom: 20px;
-  color: #333;
+  margin-bottom: 6px;
+  color: #fffffe;
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.form-content .form-subtitle {
+  text-align: center;
+  color: #a7a9be;
+  font-size: 0.85rem;
+  margin-bottom: 26px;
 }
 
 .form-content input {
   width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 12px 14px;
+  margin: 0 0 14px;
+  background: #22203a;
+  border: 1px solid #2e2c4a;
+  border-radius: 10px;
+  color: #fffffe;
+  font-size: 0.92rem;
   box-sizing: border-box;
-  font-size: 14px;
+  outline: none;
+  transition: border 0.18s;
+}
+
+.form-content input:focus {
+  border-color: #6c63ff;
+  background: #26244a;
+}
+
+.form-content input::placeholder {
+  color: #5e5d7a;
 }
 
 .form-content button[type="submit"] {
   width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  background: #4CAF50;
+  padding: 13px;
+  margin-top: 6px;
+  background: linear-gradient(135deg, #6c63ff 0%, #8b85ff 100%);
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  transition: opacity 0.18s, transform 0.12s;
+  box-shadow: 0 6px 20px rgba(108, 99, 255, 0.35);
 }
 
 .form-content button[type="submit"]:hover {
-  background: #45a049;
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.form-content button[type="submit"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
 }

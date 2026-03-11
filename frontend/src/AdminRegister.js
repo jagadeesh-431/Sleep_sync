@@ -1,17 +1,33 @@
 import React, { useState } from "react";
 import "./AdminRegister.css";
+import { adminRegister } from "./api";
+import { useNavigate } from "react-router-dom";
 
 function AdminRegister() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-    if (name && email && password) {
-      alert("Admin Registered Successfully");
-    } else {
-      alert("Please fill all fields");
+    setError("");
+    if (!name || !email || !password) {
+      setError("Please fill all fields");
+      return;
+    }
+    setLoading(true);
+    try {
+      const { data } = await adminRegister({ name, email, password });
+      localStorage.setItem("adminToken", data.token);
+      localStorage.setItem("adminInfo", JSON.stringify(data.admin));
+      navigate("/dashboard");
+    } catch (err) {
+      setError(err.response?.data?.message || "Registration failed. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -37,7 +53,10 @@ function AdminRegister() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Register</button>
+        {error && <p style={{ color: "red", fontSize: "0.875rem" }}>{error}</p>}
+        <button type="submit" disabled={loading}>
+          {loading ? "Registering..." : "Register"}
+        </button>
       </form>
     </div>
   );
