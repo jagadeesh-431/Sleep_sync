@@ -1,0 +1,9 @@
+/* Register-specific overrides (inherits .form-content from AdminLogin.css) */
+/* Register button uses blue instead of green */
+.form-content button[type="submit"] {
+  background: #2196F3;
+}
+
+.form-content button[type="submit"]:hover {
+  background: #1976D2;
+}

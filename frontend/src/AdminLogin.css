@@ -1,0 +1,36 @@
+.form-content {
+  padding: 30px;
+  text-align: center;
+}
+
+.form-content h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-content input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.form-content button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.form-content button[type="submit"]:hover {
+  background: #45a049;
+}

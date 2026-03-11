@@ -1,0 +1,46 @@
+body {
+  background: #f4f6f8;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.card {
+  width: 380px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.toggle-tabs {
+  display: flex;
+}
+
+.tab {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  background: #e9ecef;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #666;
+  transition: background 0.3s, color 0.3s;
+}
+
+.tab.active {
+  background: white;
+  color: #4CAF50;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.tab:hover:not(.active) {
+  background: #dee2e6;
+}
